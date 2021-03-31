@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<h1>
+Welcome <%= @user.name %>
+</h1>
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -10,5 +12,14 @@
   <%= @user.email %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+
+ <h1>Microposts</h1>
+
+    <% @user.micropost.each do |post| %>
+      <div>
+        <p><%= post.content %></p>
+      </div>
+    <% end %>
+
+<%= link_to 'Edit', user_path(@user) %> |
 <%= link_to 'Back', users_path %>
